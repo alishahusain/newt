@@ -1,5 +1,5 @@
 
-//A*: when you want to find the shortest path between two vertices in a graph with negative weights
+//A*: when you want to find the shortest path between two vertices in a graph with negative weightss
 class AStar {
     constructor(graph, start, end) {
         this.graph = graph;

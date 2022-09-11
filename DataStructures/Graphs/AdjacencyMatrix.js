@@ -16,7 +16,7 @@ class AdjacencyMatrix {
         console.log(this.matrix.map(row => row.join(' ')).join(''));
     }
 }
-// give an example of how to use the adjacency matrix class
+// give an example of how to use the adjacency matrix classes
 const adjacencyMatrix = new AdjacencyMatrix(5);
 adjacencyMatrix.addEdge(0, 1);
 adjacencyMatrix.addEdge(0, 2);
