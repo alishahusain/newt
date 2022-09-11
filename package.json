@@ -1,0 +1,21 @@
+{
+  "name": "polliwog",
+  "version": "1.0.0",
+  "description": "❓ SUBSTRING OR SUBARRAY FIND LONGEST OR SMALLEST CONTAIN CHARACTER     🐣 Maximum Sum Subarray of Size K, Longest Substring with K Distinct Characters, String Anagrams, No-repeat Substring, etc.           🎭 PsuendoCode 🪟 Sliding Window Pattern 🪟               ⏰: O(n) 🪐: O(n)         function find_averages_of_subarrays(K, arr) {             const result = [];             let windowSum = 0,               windowStart = 0;             for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {               windowSum += arr[windowEnd]; // add the next element               // slide the window, we don't need to slide if we've not hit the required window size of 'k'               if (windowEnd >= K - 1) {                 result.push(windowSum / K); // calculate the average                 // subtract the element going out                 windowSum -= arr[windowStart];                 windowStart += 1; // slide the window ahead               }             }             return result;           } ![alt text](https://miro.medium.com/max/372/0*o-PhzdP_jd_5L2iq.jpg)",
+  "main": "Heap.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mollybeach/leet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mollybeach/leet/issues"
+  },
+  "homepage": "https://github.com/mollybeach/leet#readme"
+}
