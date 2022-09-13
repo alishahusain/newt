@@ -1,5 +1,52 @@
 # leet
 ## 14 Patterns Algorithims
+<details>
+<summary>🪟 Sliding Window Pattern 🪟 </summary>
+<br>
+
+
+
+  <table>
+    <tr>
+     <th> <h1>🪟 Sliding Window Pattern 🪟 </h1> </th>
+        <td>
+            <h3>❓ SUBSTRING OR SUBARRAY FIND LONGEST OR SMALLEST CONTAIN CHARACTER <h3>
+            <h3>⏰: O(n) 🪐: O(n) </h3>
+        </td>
+           <td colspan="2">
+               🐣 Maximum Sum Subarray of Size K, Longest Substring with K Distinct CharactersString Anagrams, No-repeat Substring, etc.
+            </td>
+    </tr>
+    <tr>
+        <td>
+<pre class="notranslate">
+<code>
+function findAvgSubArrays(K, arr) {
+  const result = [];
+  let windowSum = 0, windowStart = 0;
+  for (let winEnd = 0; winEnd < arr.length; winEnd++) {
+    windowSum += arr[winEnd];   
+    if (winEnd >= K - 1) {
+      result.push(windowSum / K);             
+      windowSum -= arr[windowStart];
+      windowStart += 1;                     
+    }
+  }
+  return result;
+}
+</code>
+</pre>
+        </td>
+         <td colspan="3">
+            <img
+                src="https://miro.medium.com/max/372/0*o-PhzdP_jd_5L2iq.jpg"
+                alt="Sliding Window Pattern"
+            />
+        </td>
+    </tr>
+
+</table>
+<details>
 ## 1. 🪟 Sliding Window Pattern 🪟 ->
     ❓ SUBSTRING OR SUBARRAY FIND LONGEST OR SMALLEST CONTAIN CHARACTER
     🐣 Maximum Sum Subarray of Size K, Longest Substring with K Distinct Characters, String Anagrams, No-repeat Substring, etc.
