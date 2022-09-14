@@ -1,14 +1,11 @@
-# leet
+# 
 ## 14 Patterns Algorithims
-<details>
-<summary>🪟 Sliding Window Pattern 🪟 </summary>
-<br>
 
-
-
+  <details>
+    <summary>  <h1>🪟 Sliding Window Pattern 🪟 </h1> </summary>
+    <br>
   <table>
     <tr>
-     <th> <h1>🪟 Sliding Window Pattern 🪟 </h1> </th>
         <td>
             <h3>❓ SUBSTRING OR SUBARRAY FIND LONGEST OR SMALLEST CONTAIN CHARACTER <h3>
             <h3>⏰: O(n) 🪐: O(n) </h3>
@@ -46,408 +43,669 @@ function findAvgSubArrays(K, arr) {
     </tr>
 
 </table>
-</details>
-## 1. 🪟 Sliding Window Pattern 🪟 ->
-    ❓ SUBSTRING OR SUBARRAY FIND LONGEST OR SMALLEST CONTAIN CHARACTER
-    🐣 Maximum Sum Subarray of Size K, Longest Substring with K Distinct Characters, String Anagrams, No-repeat Substring, etc.
-          🎭 PsuendoCode 🪟 Sliding Window Pattern 🪟
-              ⏰: O(n) 🪐: O(n)
-        function find_averages_of_subarrays(K, arr) {
-            const result = [];
-            let windowSum = 0,
-              windowStart = 0;
-            for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
-              windowSum += arr[windowEnd]; // add the next element
-              // slide the window, we don't need to slide if we've not hit the required window size of 'k'
-              if (windowEnd >= K - 1) {
-                result.push(windowSum / K); // calculate the average
-                // subtract the element going out
-                windowSum -= arr[windowStart];
-                windowStart += 1; // slide the window ahead
-              }
-            }
-            return result;
-          }
-![alt text](https://miro.medium.com/max/372/0*o-PhzdP_jd_5L2iq.jpg)
-
-## 2. 👯 Two Pointers  👯 -> 
-    ❓ FIND A PAIR, TRIPLET or a SUBARRAY
-    🐣 Squaring a Sorted Array, Triplets that Sum to Zero, Triplet Sum Close to Target, Triplets with Smaller Sum, Subarrays with Product Less than a Target, Comparing Strings containing Backspaces, etc.
-      
-        🎭 PsuendoCode Two Pointers  👯
-          ⏰: O(n) 🪐: O(n)
-                            left = 0;
-                            right = 0;
-                            while (right < s.length()) {
-                                // add s[right] to window
-                                right++;
-                                while (window needs shrink) {
-                                    // remove s[left] from window
-                                    left++;
-                                }
-                            }
-![alt text](https://cdn.emre.me/2019-10-21-two-pointers.png)
-## 3. 🐰&🐢 Fast & Slow Pointers Pattern 🐰&🐢 ->
-    ❓ FIND CYCLE IN A LINKED LIST OR FIND THE MIDDLE OF A LINKED LIST
-    🐣 Linked List Cycle, Palindrome LinkedList, Cycle in a Circular Array, etc.
+<details>
+<summary>🪟 Problems </summary>
+<br>
+## [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) #3 🪟 
+        ❓: Given a string s, find the length of the longest substring without repeating characters.
+        🐣: 1️⃣ Input: s = "abcabcbb" Output: 3 Explain: The answer is "abc", with the length of 3. 2️⃣ Input: s = "bbbbb" Output: 1 Explain: The answer is "b", with the length of 1. 3️⃣ Input: s = "pwwkew" Output: 3 Explain: The answer is "wke", with the length of 3. Notice that the answer must be a substring, "pwke" is a subsequence & not a substring. #4 Input: s = "" Output: 0
         
-        🎭 PsuendoCode Fast & Slow Pointers Pattern 🐰&🐢
-         ⏰: O(n) 🪐: O(n)
-                            slow = 0;
-                            fast = 0;
-                            while (fast < s.length()) {
-                                if (s[fast] is not a duplicate) {
-                                    // move slow pointer one step
-                                    // add s[fast] to window
-                                    slow++;
-                                }
-                                // move fast pointer one step
-                                fast++;
-                            }
-![alt text](http://1algo1week.warriorkitty.com/assets/floyds-cycle-finding-algorithm/algorithm.png)
-## 4. 🚗🚙 Merge Intervals Pattern 🚗🚙 ->
-    ❓  MERGE INTERVALS OR FIND OVERLAPPING INTERVALS
-    🐣 Insert Interval, Intervals Intersection, Conflicting Appointments, Minimum Meeting Rooms, etc.
-          🎭 PsuendoCode 🚗🚙 Merge Intervals Pattern 🚗🚙 in javascript:
-            ⏰: O(nlogn) 🪐: O(n)
-            function merge(intervals) {
-              if (intervals.length < 2) {
-                return intervals;
-              }
-              // sort the intervals on the start time
-              intervals.sort((a, b) => a[0] - b[0]);
-              const mergedIntervals = [];
-              let start = intervals[0][0],
-                end = intervals[0][1];
-              for (i = 1; i < intervals.length; i++) {
-                const interval = intervals[i];
-                if (interval[0] <= end) { // overlapping intervals, adjust the 'end'
-                  end = Math.max(interval[1], end);
-                } else { // non-overlapping interval, add the previous interval and reset
-                  mergedIntervals.push([start, end]);
-                  start = interval[0];
-                  end = interval[1];
-                }
-              }
-              // add the last interval
-              mergedIntervals.push([start, end]);
-              return mergedIntervals;
-            }
+        🐢 Solution: 🔨 Brute Force ⏰: O(n^3) 🪐: O(min(m, n))  
+        🐇 Solution: 🪟 Sliding Window Pattern ⏰: O(n) 🪐: O(n)
 
-![alt text](https://cdn.emre.me/2019-10-27-merge-intervals.png)
- ## 5. 🌀 Cyclic Sort Pattern 🌀 ->
-    ❓ FIND MISSING # OR  SORT #s IN PLACE 
-    🐣 Cyclic Sort, Find the Missing Number, Find all Missing Numbers, Find the Duplicate Number, Find all Duplicate Numbers, Find the Corrupt Pair, etc.
-        
-         🎭 PsuendoCode 🌀 Cyclic Sort Pattern 🌀
-            ⏰: O(n) 🪐: O(1)
-                        i = 0;
-                        while (i < nums.length) {
-                            j = nums[i] - 1;
-                            if (nums[i] != nums[j])
-                                swap(nums, i, j); // put the number in its correct place
-                            else
-                                i++;
-                        }
-![alt text](https://cdn.emre.me/2019-10-28-missing-number-example.png);
- ## 6. In-place Reversal of a LinkedList Pattern 🔄 ->
-    ❓ REVERSE A SUBLIST, REVERSE EVERY K-ELEMENT IN SUBLIST
-    🐣 Reverse a Sub-list, Reverse every K-element Sub-list, etc.
-        
-        🎭 PsuendoCode In-place Reversal of a LinkedList Pattern 🔄
-          ⏰: O(n) 🪐: O(1)
-              ListNode previous = null;
-              ListNode current = head;
-              while (current != null) {
-                  next = current.next;
-                  current.next = previous;
-                  previous = current;
-                  current = next;
-              }
-![alt text]( https://cdn.emre.me/2019-11-04-in-place-reversal.gif);
-
-## 7. Tree Breadth First Search Pattern 🌳 ->
-    ❓  FIND MIN DEPTH, MAX DEPTH, LEVEL AVERAGE OF BINARY TREE
-    🐣 Level Order Traversal, Zigzag Traversal, Level Averages in a Binary Tree, Minimum Depth of a Binary Tree, Level Order Successor, Connect Level Order Siblings, etc. Tree Breadth First Search?
-
-        🎭 PsuendoCode Tree Breadth First Search Pattern 🌳
-          ⏰: O(n) 🪐: O(n)
-              const queue = [root];
-              while (queue.length) {
-                  const currentNode = queue.shift();
-                  if (currentNode.left) queue.push(currentNode.left);
-                  if (currentNode.right) queue.push(currentNode.right);
-              }
-![alt text](https://www.guru99.com/images/1/020820_0543_BreadthFirs1.png);
-## 8. Tree Depth First Search Pattern 🌲 ->
-    ❓ FIND PATH WITH MAX SUM OR PATH WITH GIVEN SEQUENCE
-    🐣 Reverse Level Order Traversal, Zigzag Traversal, Level Averages in a Binary Tree, Minimum Depth of a Binary Tree, Level Order Successor, Connect Level Order Siblings, etc.
-        
-       🎭 PsuendoCode Tree Depth First Search Pattern
-        ⏰: O(n) 🪐: O(n)  
-
-            Stack<TreeNode> stack = new Stack<>();
-            stack.push(root);
-            while (!stack.isEmpty()) {
-                TreeNode currentNode = stack.pop(); // add the node to the result list
-                // insert the children of current node in the stack
-                if (currentNode.left != null) stack.push(currentNode.left);
-                if (currentNode.right != null) stack.push(currentNode.right);
-            }
-![alt text](https://assets.leetcode.com/users/andvary/image_1556551007.png);
-## 9. Two Heaps Pattern 📦📦 ->
-    ❓  MEDIAN OF # STREAM FIND K SMALLEST #
-    🐣  Sliding Window Median, Find the Median of a Number Stream, etc.
-        
-         🎭 PsuendoCode Two Heaps Pattern 📦📦
-            ⏰: O(n) 🪐: O(n)
-
-            let maxHeap = new MaxHeap();
-            let minHeap = new MinHeap();
-            for (num of nums) {
-                if (maxHeap.isEmpty() || num <= maxHeap.peek()) {
-                    maxHeap.push(num);
+            var lengthOfLongestSubstring = function (s) {
+              let result = 0;
+              let left = 0;
+              let right = 0;
+              let set = new Set();
+              while (right < s.length) {
+                if (!set.has(s[right])) {
+                  set.add(s[right]);
+                  right++;
+                  result = Math.max(result, set.size);
                 } else {
-                    minHeap.push(num);
+                  set.delete(s[left]);
+                  left++;
                 }
-                if (maxHeap.size() > minHeap.size() + 1) {
-                    minHeap.push(maxHeap.pop());
-                } else if (maxHeap.size() < minHeap.size()) {
-                    maxHeap.push(minHeap.pop());
-                }
-            }
-
-
-            /* either both the heaps will have equal number of elements or
-               max-heap will have one
-               more element than the min-heap*/
+              }
+              return result;
+            };
+## [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) #424 🪟 
+        ❓: You are given a string s & an integer k. You can choose any character of the string & change it to any other uppercase English character. You can perform this operation at most k times.
+        Return the length of the longest substring containing the same letter you can get after performing the above operations.
+        🐣: 1️⃣ Input: s = "ABAB", k = 2 Output: 4 Explain: Replace the two 'A's with two 'B's or vice versa. 2️⃣ Input: s = "AABABBA", k = 1 Output: 4 Explain: Replace the one 'A' in the middle with 'B' & form "AABBBBA". The substring "BBBB" has the longest repeating letters, which is 4.
         
-![alt text](https://media.geeksforgeeks.org/wp-content/cdn-uploads/MinHeapAndMaxHeap.png);
-## 10. Subsets Pattern 🐛 ->
-    ❓  FIND ALL SUBSETS OF A SET OR FIND ALL SUBSETS ADD UP TO GIVEN #PERMUTATIONS AND COMBINATIONS OF SUBSETS
-    🐣 Find all subsets of a set, Find all subsets of a set with duplicates, Find all subsets with a given sum, etc.
-        Given a set of [1, 5, 3]
-        Start with an empty set: [[]]
-          Insert 1st # to all existing subsets to create new subsets: [[], [1]];
-          Insert 2nd # to all existing subsets: [[], [1], [5], [1,5]];
-          Insert 3rd # to all existing subsets: [[], [1], [5], [1,5], [3], [1,3], [5,3], [1,5,3]].
+        🐢 Solution: 🔨 Brute Force ⏰: O(n^2) 🪐: O(1)
+        🐇 Solution: 🪟 Sliding Window Pattern ⏰: O(n) 🪐: O(n)
 
-        🎭 PsuendoCode Subsets Pattern 🐛
-            ⏰: O(n) 🪐: O(n)
-              let subsets = [[]];
-              for (let i = 0; i < nums.length; i++) {
-                  let n = subsets.length;
-                  for (let j = 0; j < n; j++) {
-                      let set = subsets[j].slice(0);
-                      set.push(nums[i]);
-                      subsets.push(set);
+            var characterReplacement = function (s, k) {
+              let left = 0;
+              let right = 0;
+              let maxCount = 0;
+              let map = new Map();
+              while (right < s.length) {
+                map.set(s[right], (map.get(s[right]) || 0) + 1);
+                maxCount = Math.max(maxCount, map.get(s[right]));
+                if (right - left + 1 - maxCount > k) {
+                  map.set(s[left], map.get(s[left]) - 1);
+                  left++;
+                }
+                right++;
+              }
+              return right - left;
+            };
+## [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) #76 🪟 
+        ❓: Given two strings s & t of lengths m & n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+        The testcases will be generated such that the answer is unique.
+        A substring is a contiguous sequence of characters within the string.
+        🐣: 1️⃣ Input: s = "ADOBECODEBANC", t = "ABC" Output: "BANC" Explain: The minimum window substring "BANC" includes 'A', 'B', & 'C' from string t. 2️⃣ Input: s = "a", t = "a" Output: "a" 3️⃣ Input: s = "a", t = "aa" Output: "" Explain: Both 'a's from t must be included in the window. Since the largest window of s only has one 'a', return empty string.
+        
+        🐢 Solution: 🔨 Brute Force ⏰: O(n^2) 🪐: O(n)
+        🐇 Solution: 🪟 Sliding Window Pattern ⏰: O(n) 🪐: O(n)
+
+            var minWindow = function (s, t) {
+              let left = 0;
+              let right = 0;
+              let map = new Map();
+              let min = Infinity;
+              let result = "";
+              for (let i = 0; i < t.length; i++) {
+                map.set(t[i], (map.get(t[i]) || 0) + 1);
+              }
+              let count = map.size;
+              while (right < s.length) {
+                let char = s[right];
+                if (map.has(char)) {
+                  map.set(char, map.get(char) - 1);
+                  if (map.get(char) === 0) {
+                    count--;
                   }
+                }
+                right++;
+                while (count === 0) {
+                  if (right - left < min) {
+                    min = right - left;
+                    result = s.substring(left, right);
+                  }
+                  let char = s[left];
+                  if (map.has(char)) {
+                    map.set(char, map.get(char) + 1);
+                    if (map.get(char) > 0) {
+                      count++;
+                    }
+                  }
+                  left++;
+                }
               }
-![alt text](https://hackernoon.com/images/G9YRlqC9joZNTWsi1ul7tRkO6tv1-hemg3w8d.jpg);
-## 11.🏁🔚  Modified Binary Search Pattern 🏁🔚 ->
-    ❓  MINIMUM DIFFERENCE  OR FIND ELEMENT IN INFINITE SORTED ARRAY
-    🐣 Order-agnostic Binary Search, Ceiling of a Number, Floor of a Number, Next Letter, Number Range, etc.
+              return result;
+            };
+</details>
+</details>
+  <details>
+    <summary>  <h1>👯 Two Pointers Problems  👯 </h1> </summary>
+    <br>
+<table>
+    <tr>
+        <td>
+           <h3> ❓ FIND A PAIR, TRIPLET or a SUBARRAY <h3>
+            <h3>⏰: O(n) 🪐: O(n)</h3>
+        </td>
+            <td colspan="2">
+                🐣 Squaring a Sorted Array, Triplets that Sum to Zero, Triplet Sum Close to Target, Triplets with Smaller Sum, Subarrays with Product Less than a Target, Comparing Strings containing Backspaces, etc.
+              </td>
+    </tr>
+    <tr>
+        <td>
+<pre class="notranslate">
+<code>
+left = 0;
+right = 0;
+while (right < s.length()) {
+    // add s[right] to window
+    right++;
+    while (window needs shrink) {
+        // remove s[left] from window
+        left++;
+    }
+}
+</code>
+</pre>
+        </td>
+         <td colspan="3">
+            <img
+                src="https://cdn.emre.me/2019-10-21-two-pointers.png"
+                alt="Two Pointers"
+            />
+        </td>
+    </tr>
+</table>
+</details>
+ <details>
+    <summary>  <h1>🐰&🐢 Fast & Slow Pointers Pattern 🐰&🐢 </h1> </summary>
+    <br>
+<table>
+    <tr>
+        <td>
+            <h3> ❓ FIND CYCLE IN A LINKED LIST OR FIND THE MIDDLE OF A LINKED LIST </h3>
+            <h3>⏰:⏰: O(n) 🪐: O(n)</h3>
+        </td>
+            <td colspan="2">
+                🐣 Linked List Cycle, Palindrome LinkedList, Cycle in a Circular Array, etc.
+              </td>
+    </tr>
+        <tr>
+    </tr>
+    <tr>
+        <td>
+           <h3>🎭 PsuendoCode</h3>
+<pre class="notranslate">
+<code>
+slow = 0;
+fast = 0;
+while (fast < s.length()) {
+    if (s[fast] is not a duplicate) {
+        // move slow pointer one step
+        // add s[fast] to window
+        slow++;
+    }
+    // move fast pointer one step
+    fast++;
+}
+</code>
+</pre>
+        </td>
+         <td colspan="3">
+            <img
+                src="http://1algo1week.warriorkitty.com/assets/floyds-cycle-finding-algorithm/algorithm.png"
+                alt="Fast & Slow Pointers Pattern"
+            />
+        </td>
+    </tr>
+</table>
+</details>
+</details>
+  <details>
+    <summary>  <h1>🚗🚙 Merge Intervals Pattern 🚗🚙  </h1>  </summary>
+    <br>
+<table>
+    <tr>
+        <td>
+            <h3> ❓ MERGE INTERVALS OR FIND OVERLAPPING INTERVALS <h3>
+           <h3>  ⏰: O(nlogn) 🪐: O(n) </h3>
+        </td>
+            <td colspan="2">
+                🐣 Insert Interval, Intervals Intersection, Conflicting Appointments, Minimum Meeting Rooms, etc.
+              </td>
+    </tr>
+    <tr>
+        <td>
+           <h3>🎭 PsuendoCode</h3>
+<pre class="notranslate">
+<code>
+function merge(intervals) {
+  if (intervals.length < 2) {
+    return intervals;
+  }
+  // sort the intervals on the start time
+  intervals.sort((a, b) => a[0] - b[0]);
+  const mergedIntervals = [];
+  let start = intervals[0][0],
+    end = intervals[0][1];
+  for (i = 1; i < intervals.length; i++) {
+    const interval = intervals[i];
+    if (interval[0] <= end) {
+      end = Math.max(interval[1], end);
+    } else {
+      mergedIntervals.push([start, end]);
+      start = interval[0];
+      end = interval[1];
+    }
+  }
+  // add the last interval
+  mergedIntervals.push([start, end]);               
+  return mergedIntervals;
+}
+</code>
+</pre>
+        </td>
+         <td colspan="3">
+            <img
+                src="https://cdn.emre.me/2019-10-27-merge-intervals.png"
+                alt="Merge Intervals Pattern"
+            />
+        </td>
+    </tr>
+</table>
+</details>
+<details>
+<summary>  <h1><align="center"> 🌀 Cyclic Sort Pattern 🌀 </h1>   </summary>
+    <br>
+ <table>
+    <tr>
+        <td>
+                   <h3> ❓ FIND MISSING # OR  SORT #s IN PLACE  </h3>
+                              <h3> 🐣 Cyclic Sort, Find the Missing Number, Find all Missing Numbers, <br/>
+                              Find the Duplicate Number, Find all Duplicate Numbers, Find the Corrupt Pair, etc.
+            </h3>
+           <h3> ⏰: O(n) 🪐: O(1) </h3>
+         <h3>🎭 PsuendoCode</h3>
+<pre class="notranslate">
+<code>
 
-        🎭 PsuendoCode 🏁🔚  Modified Binary Search Pattern 🏁🔚
-          ⏰: O(logn) 🪐: O(1)
+i = 0;
+while (i < nums.length) {
+    j = nums[i] - 1;
+    if (nums[i] != nums[j])
+        swap(nums, i, j); // put the number in its correct place
+    else
+        i++;
+}
+</code>
+</pre>
+        </td>
+         <td colspan="3">
+            <img
+                src="https://cdn.emre.me/2019-10-28-missing-number-example.png"
+                alt="Cyclic Sort Pattern"
+            />
+        </td>
+    </tr>
+</table>
+</details>
+<details>
+<summary>  <h1>🔀 In-place Reversal of a LinkedList 🔀 </h1>   </summary>
+    <br>
+ <table>
+      </tr>
+      <tr>
+        <td>
+          <h3>❓ REVERSE A LINKEDLIST</h3>
+          <h3>⏰: O(n) 🪐: O(1)</h3>
+        </td>
+        <td>
+           <h3>🐣 Reverse a LinkedList, Reverse a Sub-list, Reverse every K-element Sub-list (medium), etc.</h3>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>🎭 PsuendoCode</h3>
+<pre>
+<code>
+  function reverse(head) {
+    let prev = null;
+    while (head !== null) {
+      next = head.next;
+      head.next = prev;
+      prev = head;
+      head = next;
+    }
+    return prev;
+  }
+</code>
+</pre>
+        </td>
+         <td colspan="3"> <img src="https://cdn.emre.me/2019-11-04-in-place-reversal.gif"> </td>
+      </tr>
+</table>
+</details>
+<details>
+<summary> <h1 align="center">
+      🌳 Tree Breadth First Search Pattern 🌳
+    </h1>  </summary>
+    <br>
+<table style="width:100%">
+  <tr>
+    <td>
+      <h3>❓ FIND MIN DEPTH, MAX DEPTH, LEVEL AVERAGE OF BINARY TREE</h3>
+       <h3>⏰: O(n) 🪐: O(n)</h3>
+    </td>
+    <td>
+    <h3>🐣 Level Order Traversal, Zigzag Traversal, Level Averages in a Binary Tree, <br/> 
+    Minimum Depth of a Binary Tree, Level Order Successor, <br/>
+    Connect Level Order Siblings, etc. Tree Breadth First Search?</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>🎭 PsuendoCode Tree Breadth First Search Pattern 🌳</h3>
+<pre>
+<code>
+  const queue = [root];
+  while (queue.length) {
+      const currentNode = queue.shift();
+      if (currentNode.left) queue.push(currentNode.left);
+      if (currentNode.right) queue.push(currentNode.right);
+  }
+</code>
+</pre>
+    </td>
+    <td colspan="3"> <img src="https://www.guru99.com/images/1/020820_0543_BreadthFirs1.png"> </td>
+  </tr>
+</table>
+</details>
+<details>
+<summary> <h1 align="center">
+      🌲 Tree Depth First Search Pattern 🌲
+    </h1>  </summary>
+    <br>
+<table style="width:100%">
+  <tr>
+    <td>
+      <h3>❓ FIND PATH WITH MAX SUM OR PATH WITH GIVEN SEQUENCE</h3>
+       <h3>⏰: O(n) 🪐: O(n)</h3>
+    </td>
+    <td>
+    <h3>🐣 Reverse Level Order Traversal, Zigzag Traversal, <br/>
+    Level Averages in a Binary Tree, Minimum Depth of a Binary Tree, <br/>
+    Level Order Successor, Connect Level Order Siblings, etc.</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>🎭 PsuendoCode Tree Depth First Search Pattern 🌲</h3>
+<pre>
+<code>
+  Stack< Tree Node stack = new Stack<>();
+  stack.push(root);
+  while (!stack.isEmpty()) {
+      TreeNode currentNode = stack.pop(); 
+      if (currentNode.left != null) stack.push(currentNode.left);
+      if (currentNode.right != null) stack.push(currentNode.right);
+  }
+</code>
+</pre>
+    </td>
+    <td colspan="3"> <img src="https://assets.leetcode.com/users/andvary/image_1556551007.png"> </td>
+  </tr>
+</table>
+</details>
+<details>
+<summary> <h1 align="center">
+     📦📦 Two Heaps Pattern 📦📦
+    </h1>  </summary>
+    <br>
+<table>
+  <tr>
+    <td>
+      <h3>❓ MEDIAN OF # STREAM FIND K SMALLEST #</h3>
+    </td>
+    <td>
+    <h3>🐣 Sliding Window Median, Find the Median of a Number Stream, etc.</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>🎭 PsuendoCode Two Heaps Pattern 📦📦</h3>
+<pre>
+<code>
+  let maxHeap = new MaxHeap();
+  let minHeap = new MinHeap();
+  for (num of nums) {
+      if (maxHeap.isEmpty() || num <= maxHeap.peek()) {
+          maxHeap.push(num);
+      } else {
+          minHeap.push(num);
+      }
+      if (maxHeap.size() > minHeap.size() + 1) {
+          minHeap.push(maxHeap.pop());
+      } else if (maxHeap.size() < minHeap.size()) {
+          maxHeap.push(minHeap.pop());
+      }
+  }
+</code>
+</pre>
+    </td>
+    <td colspan="3"> <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/MinHeapAndMaxHeap.png"> </td>
+  </tr>
+</table>
+</details>
+<details>
+<summary> <h1 align="center">
+     🐛 Subsets Pattern 🐛
+    </h1>  </summary>
+    <br>
+<table> 
+  <tr>
+    <td>
+      <h3>❓ FIND ALL SUBSETS OF A SET OR FIND ALL SUBSETS ADD UP TO GIVEN #PERMUTATIONS AND COMBINATIONS OF SUBSETS</h3>
+    </td>
+    <td>
+    <h3>🐣 Find all subsets of a set, Find all subsets of a set with duplicates, Find all subsets with a given sum, etc.</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>🎭 PsuendoCode </h3>
+<pre>
+<code>
+  let subsets = [[]];
+  for (let i = 0; i < nums.length; i++) {
+      let n = subsets.length;
+      for (let j = 0; j < n; j++) {
+          let set = subsets[j].slice(0);
+          set.push(nums[i]);
+          subsets.push(set);
+      }
+  }
+</code>
+</pre>
+    </td>
+    <td colspan="3"> <img src="https://hackernoon.com/images/G9YRlqC9joZNTWsi1ul7tRkO6tv1-hemg3w8d.jpg"> </td>
+  </tr>
+</table>
+</details>
+<details>
+<summary> <h1 align="center">
+      🏁🔚  Modified Binary Search Pattern 🏁🔚
+    </h1>  </summary>
+    <br>
+<table>
+  <tr>
+    <td>
+      <h3>❓ MINIMUM DIFFERENCE  OR FIND ELEMENT IN INFINITE SORTED ARRAY</h3>
+    </td>
+    <td>
+    <h3>🐣 Order-agnostic Binary Search, Ceiling of a Number, Floor of a Number, Next Letter, Number Range, etc.</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>🎭 PsuendoCode 🏁🔚  Modified Binary Search Pattern 🏁🔚</h3>
+<pre>
+<code>
+  start = 0, end = arr.length - 1;
+  while (start <= end) {
+      // calculate the middle of the current range
+      mid = start + (end - star
+      if (key < arr[mid]) {
+          end = mid - 1; // the 'key' can be in the first half
+      } else if (key > arr[mid]) {
+          start = mid + 1; // the 'key' can be in the second half
+      } else { // found the key
+          return mid;
+      }
+  }
+  // element is not found
+  return -1;
+</code>
+</pre>
+    </td>
+    <td colspan="3"> <img src="https://cdn.emre.me/2019-08-08-binary-search.png"> </td>
+  </tr>
+</table>
+</details>
+<details>
+<summary> <h1 align="center">
+      👑 K TOP Pattern 👑
+    </h1>  </summary>
+    <br>
+<table>
+  <tr>
+    <td>
+      <h3>❓ TOP K #s OR FREQUENCY OF TOP K #s</h3>
+    </td>
+    <td>
+    <h3>🐣 Top 'K' Numbers, Kth Largest Number in a Stream, K Closest Points to the Origin, etc.</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>🎭 PsuendoCode K TOP in Javascript:</h3>
+<pre>
+<code>
+  import MinHeap from './DataStructures/Heap/MinHeap.js';
 
-            start = 0, end = arr.length - 1;
-            while (start <= end) {
-                // calculate the middle of the current range
-                mid = start + (end - star
-                if (key < arr[mid]) {
-                    end = mid - 1; // the 'key' can be in the first half
-                } else if (key > arr[mid]) {
-                    start = mid + 1; // the 'key' can be in the second half
-                } else { // found the key
-                    return mid;
-                }
-            }
-            // element is not found
-            return -1;
-
-
- ## 12. Top 'K' Elements Pattern 🔝->
-    ❓ TOP K #s OR FREQUENCY OF TOP K #s
-    🐣 Top 'K' Numbers, Kth Largest Number in a Stream, K Closest Points to the Origin, etc.
-    // is top 'K' numbers a greedy problem? No, it is a heap problem.
-        
-        🎭 PsuendoCode Top 'K' Elements in Javascript:
-            ⏰: O(n) 🪐: O(n)
-            const Heap = require('collections/heap'); //http://www.collectionsjs.com
-
-            function find_k_largest_numbers(nums, k) {
-                const minHeap = new Heap([], null, ((a, b) => b - a));
-             
-                for (i = 0; i < k; i++) {
-                    minHeap.push(nums[i]);
-                }
-                for (i = k; i < nums.length; i++) {
-                    if (nums[i] > minHeap.peek()) {
-                        minHeap.pop();
-                        minHeap.push(nums[i]);
-                    }
-                }
-
-                return minHeap.toArray();
-            }
-            /*    put first 'K' numbers in the min heap go through the remaining numbers of the array, if the number from the array is bigger than the
-              top(smallest) number of the min-heap, remove the top number from heap and add the number from array  the heap has the top 'K' numbers, return them in a list*/
-
-![alt text](https://i.ytimg.com/vi/Wh3A29psE_Y/maxresdefault.jpg);
-## 13. K-way Merge Pattern 🔝🚗🚙 ->
-
-    ❓ MERGE K SORTED ARRAYS OR MERGE K SORTED LISTS
-    🐣 Merge K Sorted Lists, Kth Smallest Number in M Sorted Lists, Kth Smallest Number in a Sorted Matrix, etc.
-        🔝
-        🎭 PsuendoCode K-way Merge Pattern in Javascript:
-            ⏰: O(nlogk) 🪐: O(n)
-
-            const Heap = require('collections/heap'); //http://www.collectionsjs.com
-
-            class Heap {
-                constructor(array, compare, type) {
-                    this.heap = array;
-                    this.compare = compare;
-                    this.type = type;
-                }
-                peek() {
-                    return this.heap[0];
-                }
-                push(element) {
-                    this.heap.push(element);
-                    this.heapifyUp(this.heap.length - 1);
-                }
-                pop() {
-                    const top = this.heap[0];
-                    const bottom = this.heap.pop();
-                    if (this.heap.length > 0) {
-                        this.heap[0] = bottom;
-                        this.heapifyDown(0);
-                    }
-                    return top;
-                }
-                heapifyUp(index) {
-                    let parent = Math.floor((index - 1) / 2);
-                    while (parent >= 0 && this.compare(this.heap[parent], this.heap[index]) === this.type) {
-                        const temp = this.heap[parent];
-                        this.heap[parent] = this.heap[index];
-                        this.heap[index] = temp;
-                        index = parent;
-                        parent = Math.floor((index - 1) / 2);
-                    }
-                }
-                heapifyDown(index) {
-                    let left = (2 * index) + 1;
-                    let right = (2 * index) + 2;
-                    let smallest = index;
-                    if (left < this.heap.length && this.compare(this.heap[left], this.heap[smallest]) === this.type) {
-                        smallest = left;
-                    }
-                    if (right < this.heap.length && this.compare(this.heap[right], this.heap[smallest]) === this.type) {
-                        smallest = right;
-                    }
-                    if (smallest !== index) {
-                        const temp = this.heap[index];
-                        this.heap[index] = this.heap[smallest];
-                        this.heap[smallest] = temp;
-                        this.heapifyDown
-            }
-
-            function merge_lists(lists) {
-                const minHeap = new Heap([], null, ((a, b) => b[0] - a[0]));
-                for (i = 0; i < lists.length; i++) {
-                    if (lists[i] !== null) {
-                        minHeap.push([lists[i].value, i]);
-                        lists[i] = lists[i].next;
-                    }
-                }
-                resultHead = null, resultTail = null;
-                while (minHeap.length > 0) {
-                    node = minHeap.pop();
-                    if (resultHead === null) {
-                        resultHead = resultTail = new ListNode(node[0]);
-                    } else {
-                        resultTail.next = new ListNode(node[0]);
-                        resultTail = resultTail.next;
-                    }
-                 
-                    if (lists[node[1]] !== null) {
-                        minHeap.push([lists[node[1]].value, node[1]]);
-                        lists[node[1]] = lists[node[1]].next;
-                    }
-                }
-                return resultHead;
-            } 
-            /* 
-              put the root of each list in the min heap
-              take the smallest(top) element form the min-heap, if the running list
-              is not empty, add the next element to the heap
-              if the top element has a next element add it to the heap
-            */
-     
-      
-            
-![alt text](https://i.ytimg.com/vi/Xo54nlPHSpg/maxresdefault.jpg);
-## 14.  📅  Topological Sort Pattern 📅 ->
-    ❓  FIND ORDER OF TASKS OR IF GIVEN SEQUENCE IS VALID
-    🐣 Tasks Scheduling, Tasks Scheduling Order, All Tasks Scheduling Orders, etc.
-
-      🎭 PsuendoCode  📅  Topological Sort Pattern  📅 
-          ⏰: O(V+E) 🪐: O(V+E)
-          const Deque = require('collections/deque'); //http://www.collectionsjs.com
-
-          function print_orders(tasks, prerequisites) {
-            sortedOrder = [];
-            if (tasks <= 0) {
-              return false;
-            }
-
-            // a. Initialize the graph
-            inDegree = Array(tasks).fill(0); // count of incoming edges
-            graph = Array(tasks).fill(0).map(() => Array()); // adjacency list graph
-
-            // b. Build the graph
-            prerequisites.forEach((prerequisite) => {
-              let parent = prerequisite[0],
-                child = prerequisite[1];
-              graph[parent].push(child); // put the child into it's parent's list
-              inDegree[child]++; // increment child's inDegree
-            });
-
-            // c. Find all sources i.e., all vertices with 0 in-degrees
-            sources = new Deque();
-            for (i = 0; i < inDegree.length; i++) {
-              if (inDegree[i] === 0) {
-                sources.push(i);
-              }
-            }
-
-            print_all_topological_sorts(graph, inDegree, sources, sortedOrder);
-            return sortedOrder;
+  function findLargestKNum(nums, k) {
+      const minHeap = new MinHeap();
+      for (i = 0; i < k; i++) {
+          minHeap.push(nums[i]);
+      }
+      for (i = k; i < nums.length; i++) {
+          if (nums[i] > minHeap.peek()) {
+              minHeap.pop();
+              minHeap.push(nums[i]);
           }
+      }
 
-          function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
-            if (sources.length > 0) {
-              for (i = 0; i < sources.length; i++) {
-                vertex = sources.shift();
-                sortedOrder.push(vertex);
-                sourcesForNextCall = sources.slice(0); // make a copy of sources
-                // only remove the edges, if all of its children are not sources
-                graph[vertex].forEach((child) => { // get the node's children to decrement their in-degrees
-                  inDegree[child]--; // decrement inDegree of child
-                  if (inDegree[child] === 0) {
-                    sourcesForNextCall.push(child); // save the new source for the next call
-                  }
-                });
-                // recursive call to print other orderings from the remaining (and new) sources
-                print_all_topological_sorts(graph, inDegree, sourcesForNextCall, sortedOrder);
-                // backtrack, remove the vertex from the sorted order and put all of its children back to consider
-                // the next source instead of the current vertex
-                sortedOrder
+      return minHeap.toArray();
+  }
+</code>
+</pre>
+    </td>
+    <td colspan="3"> <img src="https://i.ytimg.com/vi/Wh3A29psE_Y/maxresdefault.jpg"> </td>
+  </tr>
+</table>
+</details>
+<details>
+<summary> <h1 align="center">
+      🆗🚕🚓 K MERGE Pattern 🆗🚕🚓
+    </h1>  </summary>
+    <br>
+<table>
+  <tr>
+    <td>
+      <h3>❓ MERGE K SORTED ARRAYS OR MERGE K SORTED LISTS</h3>
+    </td>
+    <td>
+    <h3>🐣 Merge K Sorted Lists, Kth Smallest Number in M Sorted Lists, Kth Smallest Number in a Sorted Matrix, etc.</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>🎭 PsuendoCodeK MERGE Pattern in Javascript:</h3>
+<pre>
+<code>
+  import ListNode from "DataStructures/LinkedList/ListNode.js";
+  import MinHeap from "DataStructures/Heaps/MinHeap.js";
 
-![alt text](https://slideplayer.com/slide/12886082/78/images/5/Topological+Sort%3A+Definition.jpg)
- 
+  const mergeKLists = function (lists) {
+    if (lists.length === 0) return null;
+    let dummy = new ListNode();
+    let curr = dummy;
+    let minHeap = new MinHeap();
+    for (let i = 0; i < lists.length; i++) {
+      if (lists[i]) minHeap.insert(lists[i]);
+    }
+    while (minHeap.size() > 0) {
+      let node = minHeap.remove();
+      curr.next = node;
+      curr = curr.next;
+      if (node.next) minHeap.insert(node.next);
+    }
+    return dummy.next;
+  };
+</code>
+</pre>
+    </td>
+    <td colspan="3"> <img src="https://i.ytimg.com/vi/Xo54nlPHSpg/maxresdefault.jpg"> </td>
+  </tr>
+</table>
+</details>
+<details>
+<summary> <h1 align="center">
+     📅 Topological Sort Pattern 📅 
+    </h1>  </summary>
+    <br>
+<table> 
+  <tr>
+         <td>
+      <h3>❓ FIND ORDER OF TASKS OR IF GIVEN SEQUENCE IS VALID</h3>
+    </td>
+      <td>
+     <img src="https://slideplayer.com/slide/12886082/78/images/5/Topological+Sort%3A+Definition.jpg" alt="Topological Sort: Definition" width="500" height="500">
+    </td>
+  </tr>
+    <tr>
+    <td>
+    <h3>🐣 Tasks Scheduling, Tasks Scheduling Order, All Tasks Scheduling Orders, etc.</h3>
+    </td>
+         <td>
+      <h3>🎭 PsuendoCode  📅  Topological Sort Pattern  📅  in Javascript:</h3>
+<pre>
+<code>
+const Deque = require('collections/deque'); //http://www.collectionsjs
+function print_orders(tasks, prerequisites) {
+  sortedOrder = [];
+  if (tasks <= 0) {
+    return false;
+
+  // a. Initialize the graph
+  inDegree = Array(tasks).fill(0); // count of incoming edges
+  graph = Array(tasks).fill(0).map(() => Array()); // adjacency list g
+  // b. Build the graph
+  prerequisites.forEach((prerequisite) => {
+    let parent = prerequisite[0],
+      child = prerequisite[1];
+    graph[parent].push(child); // put the child into it's parent's list
+    inDegree[child]++; // increment child's inDegree
+
+  // c. Find all sources i.e., all vertices with 0 in-degrees
+  sources = new Deque();
+  for (i = 0; i < inDegree.length; i++) {
+    if (inDegree[i] === 0) {
+      sources.push(i);
+    }
+
+  print_all_topological_sorts(graph, inDegree, sources, sortedOrder);
+  return sortedOrder;
+
+function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
+  if (sources.length > 0) {
+    for (i = 0; i < sources.length; i++) {
+      vertex = sources.shift();
+      sortedOrder.push(vertex);
+      sourcesForNextCall = sources.slice(0); // make a copy of sources
+      // only remove the edges, if all of its children are not sources
+      graph[vertex].forEach((child) => { // get the node's children to decrement their in-degrees
+        inDegree[child]--; // decrement inDegree of child
+        if (inDegree[child] === 0) {
+          sourcesForNextCall.push(child); // save the new source for the next call
+        }
+      });
+      // recursive call to print other orderings from the remaining (and new) sources
+      print_all_topological_sorts(graph, inDegree, sourcesForNextCall, sortedOrder);
+      // backtrack, remove the vertex from the sorted order and put all of its children back to consider
+      // the next source instead of the current vertex
+      sortedOrder
+</code>
+</pre>
+    </td>
+  </tr>
+</table>
+</details>
+
+
+
+      
+
+
+   
+
+
+
+
+
+
 ## Other Patterns
 
 ## Union Find Algorithm Pattern ♾ ->
@@ -1549,6 +1807,8 @@ function findAvgSubArrays(K, arr) {
               }
               return prev;
             };
+            which algorithm from ./algorithms.md is used in this solution?
+           the 
 ## [Detect Cycle in a Linked List](https://leetcode.com/problems/linked-list-cycle/) #141 🐰&🐢 
         ❓: Given head, the head of a linked list, determine if the linked list has a cycle in it. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter. Return true if there is a cycle in the linked list. Otherwise, return false.
         🐣: 1️⃣ Input: head = [3,2,0,-4], pos = 1 Output: true Explain: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed). 2️⃣ Input: head = [1,2], pos = 0 Output: true Explain: There is a cycle in the linked list, where the tail connects to the 0th node. 3️⃣ Input: head = [1], pos = -1 Output: false Explain: There is no cycle in the linked list.
@@ -1590,14 +1850,19 @@ function findAvgSubArrays(K, arr) {
               if (l2) curr.next = l2;
               return dummy.next;
             };
-## [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) #23 🚗🚙
+  ## [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) #23
+
+        Pattern Used: K MERGE 
         ❓: You are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list & return it.
         🐣: 1️⃣ Input: lists = [[1,4,5],[1,3,4],[2,6]] Output: [1,1,2,3,4,4,5,6] 2️⃣ Input: lists = [] Output: [] 3️⃣ Input: lists = [[]] Output: []
 
         🐢 Solution: 🔨 Brute Force ⏰: O(n) 🪐: O(n)
-        🐇 Solution: 🚗🚙 Merge Intervals  ⏰: O(nlogn) 🪐: O(1)
-        
-            var mergeKLists = function (lists) {
+        🐇 Solution: Heap ⏰: O(n) 🪐: O(n)
+
+        import ListNode from "DataStructures/LinkedList/ListNode.js";
+        import MinHeap from "DataStructures/Heaps/MinHeap.js";
+
+            const mergeKLists = function (lists) {
               if (lists.length === 0) return null;
               let dummy = new ListNode();
               let curr = dummy;
@@ -1699,6 +1964,7 @@ function findAvgSubArrays(K, arr) {
                 }
               }
             };
+
 ## [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) #54  📐
         Pattern Used:  📐 Matrix Pattern
         ❓: Given an m x n matrix, return all elements of the matrix in spiral order.
@@ -1802,106 +2068,14 @@ function findAvgSubArrays(K, arr) {
 
 ## String
 
-## [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) #3 🪟 
-        ❓: Given a string s, find the length of the longest substring without repeating characters.
-        🐣: 1️⃣ Input: s = "abcabcbb" Output: 3 Explain: The answer is "abc", with the length of 3. 2️⃣ Input: s = "bbbbb" Output: 1 Explain: The answer is "b", with the length of 1. 3️⃣ Input: s = "pwwkew" Output: 3 Explain: The answer is "wke", with the length of 3. Notice that the answer must be a substring, "pwke" is a subsequence & not a substring. #4 Input: s = "" Output: 0
-        
-        🐢 Solution: 🔨 Brute Force ⏰: O(n^3) 🪐: O(min(m, n))  
-        🐇 Solution: 🪟 Sliding Window Pattern ⏰: O(n) 🪐: O(n)
 
-            var lengthOfLongestSubstring = function (s) {
-              let result = 0;
-              let left = 0;
-              let right = 0;
-              let set = new Set();
-              while (right < s.length) {
-                if (!set.has(s[right])) {
-                  set.add(s[right]);
-                  right++;
-                  result = Math.max(result, set.size);
-                } else {
-                  set.delete(s[left]);
-                  left++;
-                }
-              }
-              return result;
-            };
-## [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) #424 🪟 
-        ❓: You are given a string s & an integer k. You can choose any character of the string & change it to any other uppercase English character. You can perform this operation at most k times.
-        Return the length of the longest substring containing the same letter you can get after performing the above operations.
-        🐣: 1️⃣ Input: s = "ABAB", k = 2 Output: 4 Explain: Replace the two 'A's with two 'B's or vice versa. 2️⃣ Input: s = "AABABBA", k = 1 Output: 4 Explain: Replace the one 'A' in the middle with 'B' & form "AABBBBA". The substring "BBBB" has the longest repeating letters, which is 4.
-        
-        🐢 Solution: 🔨 Brute Force ⏰: O(n^2) 🪐: O(1)
-        🐇 Solution: 🪟 Sliding Window Pattern ⏰: O(n) 🪐: O(n)
-
-            var characterReplacement = function (s, k) {
-              let left = 0;
-              let right = 0;
-              let maxCount = 0;
-              let map = new Map();
-              while (right < s.length) {
-                map.set(s[right], (map.get(s[right]) || 0) + 1);
-                maxCount = Math.max(maxCount, map.get(s[right]));
-                if (right - left + 1 - maxCount > k) {
-                  map.set(s[left], map.get(s[left]) - 1);
-                  left++;
-                }
-                right++;
-              }
-              return right - left;
-            };
-## [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) #76 🪟 
-        ❓: Given two strings s & t of lengths m & n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
-        The testcases will be generated such that the answer is unique.
-        A substring is a contiguous sequence of characters within the string.
-        🐣: 1️⃣ Input: s = "ADOBECODEBANC", t = "ABC" Output: "BANC" Explain: The minimum window substring "BANC" includes 'A', 'B', & 'C' from string t. 2️⃣ Input: s = "a", t = "a" Output: "a" 3️⃣ Input: s = "a", t = "aa" Output: "" Explain: Both 'a's from t must be included in the window. Since the largest window of s only has one 'a', return empty string.
-        
-        🐢 Solution: 🔨 Brute Force ⏰: O(n^2) 🪐: O(n)
-        🐇 Solution: 🪟 Sliding Window Pattern ⏰: O(n) 🪐: O(n)
-
-            var minWindow = function (s, t) {
-              let left = 0;
-              let right = 0;
-              let map = new Map();
-              let min = Infinity;
-              let result = "";
-              for (let i = 0; i < t.length; i++) {
-                map.set(t[i], (map.get(t[i]) || 0) + 1);
-              }
-              let count = map.size;
-              while (right < s.length) {
-                let char = s[right];
-                if (map.has(char)) {
-                  map.set(char, map.get(char) - 1);
-                  if (map.get(char) === 0) {
-                    count--;
-                  }
-                }
-                right++;
-                while (count === 0) {
-                  if (right - left < min) {
-                    min = right - left;
-                    result = s.substring(left, right);
-                  }
-                  let char = s[left];
-                  if (map.has(char)) {
-                    map.set(char, map.get(char) + 1);
-                    if (map.get(char) > 0) {
-                      count++;
-                    }
-                  }
-                  left++;
-                }
-              }
-              return result;
-            };
-## [Valid Anagram](https://leetcode.com/problems/valid-anagram/) #242 
+## [Valid Anagram](https://leetcode.com/problems/valid-anagram/) #242  
         ❓: Given two strings s & t , write a function to determine if t is an anagram of s.
         🐣: 1️⃣ Input: s = "anagram", t = "nagaram" Output: true 2️⃣ Input: s = "rat", t = "car" Output: false
 
         🐢 Solution: 🔨 Brute Force ⏰: O(nlogn) 🪐: O(n)
         🐇 Solution:  Hash Table  ⏰: O(n) 🪐: O(n)
-
+ 
             var isAnagram = function (s, t) {
               if (s.length !== t.length) {
                 return false;
@@ -2388,7 +2562,7 @@ function findAvgSubArrays(K, arr) {
 
 ## Heap
 
-## [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) #213
+## [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) #23
 
         Pattern Used: Heap
         ❓: You are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list & return it.
@@ -2397,177 +2571,51 @@ function findAvgSubArrays(K, arr) {
         🐢 Solution: 🔨 Brute Force ⏰: O(n) 🪐: O(n)
         🐇 Solution: Heap ⏰: O(n) 🪐: O(n)
 
+
+            import ListNode from "DataStructures/LinkedList/ListNode.js";
+            import MinHeap from "DataStructures/Heaps/MinHeap.js";
+
             var mergeKLists = function (lists) {
-              let heap = new MinHeap();
-              for (let list of lists) {
-                while (list) {
-                  heap.insert(list.val);
-                  list = list.next;
-                }
-              }
+              if (lists.length === 0) return null;
               let dummy = new ListNode();
-              let node = dummy;
-              while (heap.size() > 0) {
-                node.next = new ListNode(heap.extract());
-                node = node.next;
+              let curr = dummy;
+              let minHeap = new MinHeap();
+              for (let i = 0; i < lists.length; i++) {
+                if (lists[i]) minHeap.insert(lists[i]);
+              }
+              while (minHeap.size() > 0) {
+                let node = minHeap.remove();
+                curr.next = node;
+                curr = curr.next;
+                if (node.next) minHeap.insert(node.next);
               }
               return dummy.next;
             };
-            class MinHeap {
-              constructor() {
-                this.heap = [];
-              }
-              size() {
-                return this.heap.length;
-              }
-              insert(val) {
-                this.heap.push(val);
-                this.bubbleUp();
-              }
-              bubbleUp() {
-                let idx = this.heap.length - 1;
-                while (idx > 0) {
-                  let parentIdx = Math.floor((idx - 1) / 2);
-                  if (this.heap[parentIdx] > this.heap[idx]) {
-                    [this.heap[parentIdx], this.heap[idx]] = [
-                      this.heap[idx],
-                      this.heap[parentIdx],
-                    ];
-                    idx = parentIdx;
-                  } else {
-                    break;
-                  }
-                }
-              }
-              extract() {
-                let min = this.heap[0];
-                let end = this.heap.pop();
-                if (this.heap.length > 0) {
-                  this.heap[0] = end;
-                  this.sinkDown();
-                }
-                return min;
-              }
-              sinkDown() {
-                let idx = 0;
-                let length = this.heap.length;
-                let element = this.heap[0];
-                while (true) {
-                  let leftChildIdx = 2 * idx + 1;
-                  let rightChildIdx = 2 * idx + 2;
-                  let leftChild, rightChild;
-                  let swap = null;
-                  if (leftChildIdx < length) {
-                    leftChild = this.heap[leftChildIdx];
-                    if (leftChild < element) {
-                      swap = leftChildIdx;
-                    }
-                  }
-                    if (rightChildIdx < length) {
-                        rightChild = this.heap[rightChildIdx];
-                        if (
-                        (swap === null && rightChild < element) ||
-                        (swap !== null && rightChild < leftChild)     ) {
-                        swap = rightChildIdx;
-                        }
-                    }
-                    if (swap === null) break;
-                    this.heap[idx] = this.heap[swap];
-                    this.heap[swap] = element;
-                    idx = swap;
-                }
-                }
-            }
 
-## [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) #347
+## [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) #347 👑
 
-        Pattern Used: Heap
+        Pattern Used: K TOP 👑
         ❓: Given an integer array nums & an integer k, return the k most frequent elements. You may return the answer in any order.
         🐣: 1️⃣ Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2] 2️⃣ Input: nums = [1], k = 1 Output: [1]
 
         🐢 Solution: 🔨 Brute Force ⏰: O(n) 🪐: O(n)
         🐇 Solution: Heap ⏰: O(n) 🪐: O(n)
 
-            var topKFrequent = function (nums, k) {
-            let map = new Map();
-            for (let num of nums) {
-                map.set(num, map.get(num) + 1 || 1);
-            }
-            let heap = new MaxHeap();
-            for (let [key, value] of map) {
-                heap.insert([key, value]);
-                if (heap.size() > k) heap.extract();
-            }
-            let result = [];
-            while (heap.size() > 0) {
-                result.push(heap.extract()[0]);
-            }
-            return result;
-            };
-            class MaxHeap {
-            constructor() {
-                this.heap = [];
-            }
-            size() {
-                return this.heap.length;
-            }
-            insert(val) {
-                this.heap.push(val);
-                this.bubbleUp();
-            }
-            bubbleUp() {
-                let idx = this.heap.length - 1;
-                while (idx > 0) {
-                let parentIdx = Math.floor((idx - 1) / 2);
-                if (this.heap[parentIdx][1] < this.heap[idx][1]) {
-                    [this.heap[parentIdx], this.heap[idx]] = [
-                    this.heap[idx],
-                    this.heap[parentIdx],
-                    ];
-                    idx = parentIdx;
-                } else {
-                    break;
+            import MinHeap from './DataStructures/Heap/MinHeap.js';
+
+            function findLargestKNum(nums, k) {
+                const minHeap = new MinHeap();
+                for (i = 0; i < k; i++) {
+                    minHeap.push(nums[i]);
                 }
-                }
-            }
-            extract() {
-                let max = this.heap[0];
-                let end = this.heap.pop();
-                if (this.heap.length > 0) {
-                this.heap[0] = end;
-                this.sinkDown();
-                }
-                return max;
-            }
-            sinkDown() {
-                let idx = 0;
-                let length = this.heap.length;
-                let element = this.heap[0];
-                while (true) {
-                let leftChildIdx = 2 * idx + 1;
-                let rightChildIdx = 2 * idx + 2;
-                let leftChild, rightChild;
-                let swap = null;
-                if (leftChildIdx < length) {
-                    leftChild = this.heap[leftChildIdx];
-                    if (leftChild[1] > element[1]) {
-                    swap = leftChildIdx;
+                for (i = k; i < nums.length; i++) {
+                    if (nums[i] > minHeap.peek()) {
+                        minHeap.pop();
+                        minHeap.push(nums[i]);
                     }
                 }
-                if (rightChildIdx < length) {
-                    rightChild = this.heap[rightChildIdx];
-                    if (
-                    (swap === null && rightChild[1] > element[1]) ||
-                    (swap !== null && rightChild[1] > leftChild[1]) ) {
-                    swap = rightChildIdx;
-                    }
-                }
-                if (swap === null) break;
-                this.heap[idx] = this.heap[swap];
-                this.heap[swap] = element;
-                idx = swap;
-                }
-            }
+
+                return minHeap.toArray();
             }
 
 ## [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) #295
@@ -2776,33 +2824,6 @@ function findAvgSubArrays(K, arr) {
         1921. Eliminate Maximum Number of Monsters
 
 
-## Types of Data Structures
-
-    1. Array
-    2. Linked List
-    3. Stack
-    4. Queue
-    5. Hash Table
-    6. Binary Tree
-    7. 🏁🔚  Modified Binary Search Tree
-    8. Heap
-    9. 📘 Trie
-    10. Graph
-    11. Matrix
-    12. Set
-    13. Map
-    14. String
-    15. Bitwise
-    16. Segment Tree
-    17. Fenwick Tree
-    18. DisjoSet
-    19. Suffix Array
-    20. Suffix Tree
-    21. Sparse Table
-    22. Sparse Matrix
-    23. Bloom Filter
-    24. LRU Cache
-
 
 ## FLOW CHART❓
 
@@ -2983,7 +3004,7 @@ function findAvgSubArrays(K, arr) {
  [Search in a Sorted Infinite Array](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/) \
  [Minimum Difference Element](https://leetcode.com/problems/find-k-closest-elements/) \
  [Bitonic Array Maximum](https://leetcode.com/problems/find-peak-element/) \
-# 12. Top 'K' Elements Pattern:
+# 12. K TOP Pattern:
 [Kth Smallest Number](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) \
 [Kth Largest Number](https://leetcode.com/problems/kth-largest-element-in-an-array/) \
 [Connect Ropes](https://leetcode.com/problems/minimum-cost-to-connect-sticks/) \
@@ -2994,7 +3015,7 @@ function findAvgSubArrays(K, arr) {
 [Connect Ropes](https://leetcode.com/problems/minimum-cost-to-connect-sticks/) \
 [Top 'K' Frequent Numbers](https://leetcode.com/problems/top-k-frequent-elements/) \
  [K Closest Points to the Origin](https://leetcode.com/problems/k-closest-points-to-origin/) \
-## 13. K-way Merge Pattern:
+## 13.K MERGE Pattern:
 [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) \
 [Kth Smallest Number in M Sorted Lists](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/) \
 [Kth Smallest Number in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) \
@@ -3028,191 +3049,4 @@ function findAvgSubArrays(K, arr) {
 [Bitwise & of Numbers Range](https://leetcode.com/problems/bitwise-&-of-numbers-range/) \
 
 
-        
-## Sorting Algorithms: 
-        1. Bubble Sort
-            ❓: Array == AlmostSorted && Array < Small Size
-            ⏰: O(n^2) 🪐 O(1)
-            🎭 PsuendoCode:
-                for i = 0 to n-1
-                    for j = 0 to n-1
-                        if arr[j] > arr[j+1]
-                            swap(arr[j], arr[j+1])
-        2. Selection Sort
-            ❓: Array != Sorted && Array < Small Size
-            ⏰: O(n^2) 🪐: O(1)
-            🎭 PsuendoCode:
-                for i = 0 to n-1
-                    min = i
-                    for j = i+1 to n-1
-                        if arr[j] < arr[min]
-                            min = j
-                    swap(arr[i], arr[min])
-        3. Insertion Sort
-            ❓: Array  == AlmostSorted && Array < Small Size
-            ⏰: O(n^2) 🪐: O(1)
-            🎭 PsuendoCode:
-                for i = 1 to n-1
-                    key = arr[i]
-                    j = i-1
-                    while j >= 0 && arr[j] > key
-                        arr[j+1] = arr[j]
-                        j = j-1
-                    arr[j+1] = key
-        4. Merge Sort
-            ❓: Array != Sorted && Array < Small Size
-            ⏰: O(nlogn) 🪐: O(n)
-            🎭 PsuendoCode:
-                mergeSort(arr, l, r)
-                    if l < r
-                        m = l + (r-l)/2
-                        mergeSort(arr, l, m)
-                        mergeSort(arr, m+1, r)
-                        merge(arr, l, m, r)
-                merge(arr, l, m, r)
-                    n1 = m-l+1
-                    n2 = r-m
-                    L[] = new array of size n1
-                    R[] = new array of size n2
-                    for i = 0 to n1-1
-                        L[i] = arr[l+i]
-                    for j = 0 to n2-1
-                        R[j] = arr[m+1+j]
-                    i = 0
-                    j = 0
-                    k = l
-                    while i < n1 && j < n2
-                        if L[i] <= R[j]
-                            arr[k] = L[i]
-                            i++
-                        else
-                            arr[k] = R[j]
-                            j++
-                        k++
-                    while i < n1
-                        arr[k] = L[i]
-                        i++
-                        k++
-                    while j < n2
-                        arr[k] = R[j]
-                        j++
-                        k++
-        5. Quick Sort
-              ❓: Array != Sorted && Array > LargeSize
-              ⏰: O(nlogn) 🪐: O(logn)
-              🎭 PsuendoCode:
-                  quickSort(arr, low, high)
-                      if low < high
-                          pi = partition(arr, low, high)
-                          quickSort(arr, low, pi-1)
-                          quickSort(arr, pi+1, high)
-                  partition(arr, low, high)
-                      pivot = arr[high]
-                      i = low-1
-                      for j = low to high-1
-                          if arr[j] < pivot
-                              i++
-                              swap(arr[i], arr[j])
-                      swap(arr[i+1], arr[high])
-                      return i+1
-        6. Heap Sort
-                ❓: Array != Sorted && Array > LargeSize
-                ⏰: O(nlogn) 🪐: O(1)
-                🎭 PsuendoCode:
-                    heapSort(arr, n)
-                        for i = n/2-1 to 0
-                            heapify(arr, n, i)
-                        for i = n-1 to 0
-                            swap(arr[0], arr[i])
-                            heapify(arr, i, 0)
-                    heapify(arr, n, i)
-                        largest = i
-                        l = 2*i+1
-                        r = 2*i+2
-                        if l < n && arr[l] > arr[largest]
-                            largest = l
-                        if r < n && arr[r] > arr[largest]
-                            largest = r
-                        if largest != i
-                            swap(arr[i], arr[largest])
-                            heapify(arr, n, largest)
-        7. Counting Sort
-              ❓:Array == Integers && Array < Small Size
-              ⏰: O(n+k) 🪐: O(k)
-              🎭 PsuendoCode:
-                  countingSort(arr, n)
-                      max = getMax(arr, n)
-                      count[] = new array of size max+1
-                      output[] = new array of size n
-                      for i = 0 to max
-                          count[i] = 0
-                      for i = 0 to n-1
-                          count[arr[i]]++
-                      for i = 1 to max
-                          count[i] += count[i-1]
-                      for i = n-1 to 0
-                          output[count[arr[i]]-1] = arr[i]
-                          count[arr[i]]--
-                      for i = 0 to n-1
-                          arr[i] = output[i]
-                  getMax(arr, n)
-                      max = arr[0]
-                      for i = 1 to n-1
-                          if arr[i] > max
-                              max = arr[i]
-                      return max
-        8. Radix Sort
-            ❓:Array == Integers && Array < Small Size
-            ⏰: O(nk) 🪐: O(n+k)
-            🎭 PsuendoCode:
-                radixSort(arr, n)
-                    m = getMax(arr, n)
-                    for exp = 1 to m
-                        countSort(arr, n, exp)
-                countSort(arr, n, exp)
-                    output[] = new array of size n
-                    count[] = new array of size 10
-                    for i = 0 to 9
-                        count[i] = 0
-                    for i = 0 to n-1
-                        count[(arr[i]/exp)%10]++
-                    for i = 1 to 9
-                        count[i] += count[i-1]
-                    for i = n-1 to 0
-                        output[count[(arr[i]/exp)%10]-1] = arr[i]
-                        count[(arr[i]/exp)%10]--
-                    for i = 0 to n-1
-                        arr[i] = output[i]
-                getMax(arr, n)
-                    max = arr[0]
-                    for i = 1 to n-1
-                        if arr[i] > max
-                            max = arr[i]
-                    return max
-        9. Bucket Sort
-              ❓:Array == Integers && Array < Small Size
-              ⏰: O(n+k) 🪐: O(n+k)
-              🎭 PsuendoCode:
-                  bucketSort(arr, n)
-                      buckets[] = new array of size n
-                      for i = 0 to n-1
-                          buckets[i] = new array of size 0
-                      for i = 0 to n-1
-                          index = arr[i]*n
-                          buckets[index].add(arr[i])
-                      for i = 0 to n-1
-                          insertionSort(buckets[i])
-                      index = 0
-                      for i = 0 to n-1
-                          for j = 0 to buckets[i].size()
-                              arr[index++] = buckets[i].get(j)
-                  insertionSort(arr, n)
-                      for i = 1 to n-1
-                          key = arr[i]
-                          j = i-1
-                          while j >= 0 && arr[j] > key
-                              arr[j+1] = arr[j]
-                              j = j-1
-                          arr[j+1] = key
-
-
+     
