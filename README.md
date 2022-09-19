@@ -40,9 +40,6 @@
 <h4>🌱 = 1 Node </h4>
 </td>
 
-
-
-
 <td>
 <h4>🎡 = 1 Loop </h4>
 </td>
@@ -342,7 +339,7 @@ function merge(intervals) {
 </details>
 <details>
 <summary> <h1 align="center">
-      🏁🔚  Mod Binary Search: 📌📌📌
+      🏁🔚  Mod Binary Search: 📌📌📌🎡 
     </h1>  </summary>
     <br>
 <table>
@@ -356,7 +353,7 @@ function merge(intervals) {
   </tr>
   <tr>
     <td>
-      <h3>🎭 PsuendoCode 🏁🔚  Modified Binary Search Pattern 🏁🔚</h3>
+      <h3>🎭 PsuendoCode 🏁🔚  Mod Binary Search Pattern 🏁🔚</h3>
 <pre>
 <code>
   start = 0, end = arr.length - 1;
@@ -417,7 +414,7 @@ while (i < nums.length) {
 </table>
 </details>
 <details>
-<summary>  <h1>🔀🔗 Reverse LinkList: 🤹‍♀️🎡 </h1>   </summary>
+<summary>  <h1>🔀🔗 Reverse LinkList: 🌱🤹‍♀️🎡 </h1>   </summary>
     <br>
  <table>
       </tr>
@@ -1076,9 +1073,9 @@ function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
         🐣: Input: nums = [3,4,5,1,2], Output: 1
 
         🐢 Solution: 🔨 Brute Force  ⏰: O(N) 🪐: O(1)
-        🐇 Solution:  🏁🔚  Modified Binary Search Pattern ⏰: O(logN) 🪐: O(1)
+        🐇 Solution:  🏁🔚  Mod Binary Search Pattern ⏰: O(logN) 🪐: O(1)
 
-        Pattern: 🏁🔚  Modified Binary Search
+        Pattern: 🏁🔚  Mod Binary Search
         var findMin = function(nums) {
             let left = 0;
             let right = nums.length-1;
@@ -1101,7 +1098,7 @@ function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
         🐣: Input: nums = [3,4,5,1,2], Output: 1
 
         🐢 Solution: 🔨 Brute Force  ⏰: O(N) 🪐: O(1)
-        🐇 Solution:  🏁🔚  Modified Binary Search ⏰: O(logN) 🪐: O(1)
+        🐇 Solution:  🏁🔚  Mod Binary Search ⏰: O(logN) 🪐: O(1)
 
         var findMin = function(nums) {
             let left = 0;
@@ -1123,7 +1120,7 @@ function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
         🐣: Input: nums = [4,5,6,7,0,1,2], target = 0, Output: 4
 
           🐢 Solution: 🔨 Brute Force ⏰: O(N) 🪐: O(1)
-          🐇 Solution: 🏁🔚  Modified Binary Search ⏰: O(logn) 🪐: O(1)   
+          🐇 Solution: 🏁🔚  Mod Binary Search ⏰: O(logn) 🪐: O(1)   
           
         var search = function(nums, target) {
             let left = 0;
@@ -2452,12 +2449,12 @@ function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
               root.right = buildTree(preorder.slice(index + 1), inorder.slice(index + 1));
               return root;
             };
-## [Validate 🏁🔚  Modified Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) #98 🌲
-        ❓: Given the root of a binary tree, determine if it is a valid 🏁🔚  Modified Binary Search tree (BST).
+## [Validate 🏁🔚  Mod Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) #98 🌲
+        ❓: Given the root of a binary tree, determine if it is a valid 🏁🔚  Mod Binary Search tree (BST).
         A valid BST is defined as follows:
         The left subtree of a node contains only nodes with keys less than the node's key.
         The right subtree of a node contains only nodes with keys greater than the node's key.
-        Both the left & right subtrees must also be 🏁🔚  Modified Binary Search trees.
+        Both the left & right subtrees must also be 🏁🔚  Mod Binary Search trees.
         🐣: 1️⃣ Input: root = [2,1,3] Output: true 2️⃣ Input: root = [5,1,4,null,null,3,6] Output: false
 
         🐢 Solution: 🔨 Brute Force ⏰: O(n) 🪐: O(n)
@@ -2490,7 +2487,7 @@ function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
               return result[k - 1];
             };
 ## [Lowest Common Ancestor of BST](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) #235 🌲
-        ❓: Given a 🏁🔚  Modified Binary Search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
+        ❓: Given a 🏁🔚  Mod Binary Search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
         According to the definition of LCA on Wikipedia: "The lowest common ancestor of two nodes p & q in a binary tree T is the lowest node that has both p & q as descendants (where we allow a node to be a descendant of itself)."
         🐣: 1️⃣ Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8 Output: 6 2️⃣ Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4 Output: 2
 
@@ -3054,15 +3051,15 @@ function print_all_topological_sorts(graph, inDegree, sources, sortedOrder) {
  [String Permutations by changing case](https://leetcode.com/problems/letter-case-permutation/) \
  [Balanced Parentheses](https://leetcode.com/problems/generate-parentheses/) \
  [Unique Generalized Abbreviations](https://leetcode.com/problems/generalized-abbreviation/) \
-## 11. Modified 🏁🔚  Modified Binary Search Pattern:
-[Order-agnostic 🏁🔚  Modified Binary Search](https://leetcode.com/problems/binary-search/) \
+## 11. Modified 🏁🔚  Mod Binary Search Pattern:
+[Order-agnostic 🏁🔚  Mod Binary Search](https://leetcode.com/problems/binary-search/) \
 [Ceiling of a Number](https://leetcode.com/problems/find-smallest-letter-greater-than-target/) \
 [Next Letter](https://leetcode.com/problems/find-smallest-letter-greater-than-target/) \
 [Number Range](https://leetcode.com/problems/find-first-&-last-position-of-element-in-sorted-array/) \
 [Search in a Sorted Infinite Array](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/) \
 [Minimum Difference Element](https://leetcode.com/problems/find-k-closest-elements/) \
 [Bitonic Array Maximum](https://leetcode.com/problems/find-peak-element/) \
-[Order-agnostic 🏁🔚  Modified Binary Search](https://leetcode.com/problems/binary-search/) \
+[Order-agnostic 🏁🔚  Mod Binary Search](https://leetcode.com/problems/binary-search/) \
 [Ceiling of a Number](https://leetcode.com/problems/find-smallest-letter-greater-than-target/) \
  [Next Letter](https://leetcode.com/problems/find-smallest-letter-greater-than-target/) \
  [Number Range](https://leetcode.com/problems/find-first-&-last-position-of-element-in-sorted-array/) \
