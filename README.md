@@ -1,8 +1,71 @@
 # 
 ## 14 Patterns Algorithims
 
+
+<table>
+<th><h3>Uses: Symbol in Pattern</h3></th>
+<tr>
+<td>
+<h4>📌 = 1 Pointer <h4> 
+</td>
+<td>
+<h4>📦 = 1 Heap <h4> 
+</td>
+
+<td>
+<h4>🚥 = 1 Array <h4> 
+</td>
+
+<td>
+<h4>🍽 = 1 Stack</h4>
+</td>
+
+<td>
+<h4>🦜 = 1 Queue</h4>
+</td>
+
+
+<td>
+<h4>🗂 = 1 Hash </h4>
+</td>
+
+<td>
+<h4>➕ = 1 Counter </h4>
+</td>
+
+</tr>
+<tr>
+
+<td>
+<h4>🌱 = 1 Node </h4>
+</td>
+
+
+
+
+<td>
+<h4>🎡 = 1 Loop </h4>
+</td>
+
+<td>
+<h4>📱 = 1 Graph</h4>
+</td>
+
+<td>
+<h4>🔗 = 1 Linked List </h4>
+</td>
+<td>
+<h4> 🪞 = 1 Recursion </h4>
+</td>
+
+<td>
+<h4>🤹‍♀️ = 1 Swap </h4>
+</td>
+</tr>
+</table>
+
   <details>
-    <summary>  <h1>🪟 Sliding Window Pattern 🪟 </h1> </summary>
+    <summary>  <h1>🪟 Sliding Window : 📌🚥🎡 </h1> </summary>
     <br>
   <table>
     <tr>
@@ -142,7 +205,7 @@ function findAvgSubArrays(K, arr) {
 </details>
 </details>
   <details>
-    <summary>  <h1>👯 Two Pointers Problems  👯 </h1> </summary>
+    <summary>  <h1>👯 Two Pointers:  📌📌🎡</h1> </summary>
     <br>
 <table>
     <tr>
@@ -181,7 +244,7 @@ while (right < s.length()) {
 </table>
 </details>
  <details>
-    <summary>  <h1>🐰&🐢 Fast & Slow Pointers Pattern 🐰&🐢 </h1> </summary>
+    <summary>  <h1>🐰🐢 Fast & Slow Pointers: 📌📌 🎡</h1> </summary>
     <br>
 <table>
     <tr>
@@ -224,8 +287,8 @@ while (fast < s.length()) {
 </table>
 </details>
 </details>
-  <details>
-    <summary>  <h1>🚗🚙 Merge Intervals Pattern 🚗🚙  </h1>  </summary>
+ <details>
+    <summary>  <h1>🚗🚙 Merge Intervals : 📌📌🚥  </h1>  </summary>
     <br>
 <table>
     <tr>
@@ -278,7 +341,48 @@ function merge(intervals) {
 </table>
 </details>
 <details>
-<summary>  <h1><align="center"> 🌀 Cyclic Sort Pattern 🌀 </h1>   </summary>
+<summary> <h1 align="center">
+      🏁🔚  Mod Binary Search: 📌📌📌
+    </h1>  </summary>
+    <br>
+<table>
+  <tr>
+    <td>
+      <h3>❓ MINIMUM DIFFERENCE  OR FIND ELEMENT IN INFINITE SORTED ARRAY</h3>
+    </td>
+    <td>
+    <h3>🐣 Order-agnostic Binary Search, Ceiling of a Number, Floor of a Number, Next Letter, Number Range, etc.</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>🎭 PsuendoCode 🏁🔚  Modified Binary Search Pattern 🏁🔚</h3>
+<pre>
+<code>
+  start = 0, end = arr.length - 1;
+  while (start <= end) {
+      // calculate the middle of the current range
+      mid = start + (end - star
+      if (key < arr[mid]) {
+          end = mid - 1; // the 'key' can be in the first half
+      } else if (key > arr[mid]) {
+          start = mid + 1; // the 'key' can be in the second half
+      } else { // found the key
+          return mid;
+      }
+  }
+  // element is not found
+  return -1;
+</code>
+</pre>
+    </td>
+    <td colspan="3"> <img src="https://cdn.emre.me/2019-08-08-binary-search.png"> </td>
+  </tr>
+</table>
+</details>
+ 
+<details>
+<summary>  <h1><align="center"> 🌀 Cyclic Sort :  🎡🤹‍♀️ </h1>   </summary>
     <br>
  <table>
     <tr>
@@ -313,7 +417,7 @@ while (i < nums.length) {
 </table>
 </details>
 <details>
-<summary>  <h1>🔀 In-place Reversal of a LinkedList 🔀 </h1>   </summary>
+<summary>  <h1>🔀🔗 Reverse LinkList: 🤹‍♀️🎡 </h1>   </summary>
     <br>
  <table>
       </tr>
@@ -350,7 +454,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-      🌳 Tree Breadth First Search Pattern 🌳
+      🌳 BFS🦜 🪞
     </h1>  </summary>
     <br>
 <table style="width:100%">
@@ -367,7 +471,7 @@ while (i < nums.length) {
   </tr>
   <tr>
     <td>
-      <h3>🎭 PsuendoCode Tree Breadth First Search Pattern 🌳</h3>
+      <h3>🎭 PsuendoCode 🌳</h3>
 <pre>
 <code>
   const queue = [root];
@@ -385,7 +489,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-      🌲 Tree Depth First Search Pattern 🌲
+      🌲 DFS 🍽🪞
     </h1>  </summary>
     <br>
 <table style="width:100%">
@@ -421,7 +525,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-     📦📦 Two Heaps Pattern 📦📦
+     📦📦 Two Heaps  📦📦 🎡
     </h1>  </summary>
     <br>
 <table>
@@ -461,7 +565,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-     🐛 Subsets Pattern 🐛
+     🐛 Subsets Pattern 🚥🎡
     </h1>  </summary>
     <br>
 <table> 
@@ -494,49 +598,10 @@ while (i < nums.length) {
   </tr>
 </table>
 </details>
+
 <details>
 <summary> <h1 align="center">
-      🏁🔚  Modified Binary Search Pattern 🏁🔚
-    </h1>  </summary>
-    <br>
-<table>
-  <tr>
-    <td>
-      <h3>❓ MINIMUM DIFFERENCE  OR FIND ELEMENT IN INFINITE SORTED ARRAY</h3>
-    </td>
-    <td>
-    <h3>🐣 Order-agnostic Binary Search, Ceiling of a Number, Floor of a Number, Next Letter, Number Range, etc.</h3>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h3>🎭 PsuendoCode 🏁🔚  Modified Binary Search Pattern 🏁🔚</h3>
-<pre>
-<code>
-  start = 0, end = arr.length - 1;
-  while (start <= end) {
-      // calculate the middle of the current range
-      mid = start + (end - star
-      if (key < arr[mid]) {
-          end = mid - 1; // the 'key' can be in the first half
-      } else if (key > arr[mid]) {
-          start = mid + 1; // the 'key' can be in the second half
-      } else { // found the key
-          return mid;
-      }
-  }
-  // element is not found
-  return -1;
-</code>
-</pre>
-    </td>
-    <td colspan="3"> <img src="https://cdn.emre.me/2019-08-08-binary-search.png"> </td>
-  </tr>
-</table>
-</details>
-<details>
-<summary> <h1 align="center">
-      👑 K TOP Pattern 👑
+      👑 📦 K TOP :  📦 🎡🎡
     </h1>  </summary>
     <br>
 <table>
@@ -578,7 +643,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-      🆗🚕🚓 K MERGE Pattern 🆗🚕🚓
+      🆗🚕🚓 📦 K MERGE : 🌱📦🎡🎡
     </h1>  </summary>
     <br>
 <table>
@@ -623,7 +688,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-     📅 Topological Sort Pattern 📅 
+     📅 Topological Sort : 📦📱🎡
     </h1>  </summary>
     <br>
 <table> 
