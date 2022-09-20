@@ -414,7 +414,7 @@ while (i < nums.length) {
 </table>
 </details>
 <details>
-<summary>  <h1>🔀🔗 Reverse LinkList: 🌱🤹‍♀️🎡 </h1>   </summary>
+<summary>  <h1>🔀🔗 Reverse LinkList : 🌱🤹‍♀️🎡 </h1>   </summary>
     <br>
  <table>
       </tr>
@@ -451,7 +451,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-      🌳 BFS🦜 🪞
+      🌳 BFS : 🦜 🪞
     </h1>  </summary>
     <br>
 <table style="width:100%">
@@ -486,7 +486,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-      🌲 DFS 🍽🪞
+      🌲 DFS :  🍽🪞
     </h1>  </summary>
     <br>
 <table style="width:100%">
@@ -522,7 +522,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-     📦📦 Two Heaps  📦📦 🎡
+     📦📦 Two Heaps : 📦📦 🎡
     </h1>  </summary>
     <br>
 <table>
@@ -562,7 +562,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-     🐛 Subsets Pattern 🚥🎡
+     🐛 Subsets :  🚥🎡
     </h1>  </summary>
     <br>
 <table> 
@@ -598,7 +598,7 @@ while (i < nums.length) {
 
 <details>
 <summary> <h1 align="center">
-      👑 📦 K TOP :  📦 🎡🎡
+     #️⃣ 👑  K TOP :  📦 🎡🎡
     </h1>  </summary>
     <br>
 <table>
@@ -640,7 +640,7 @@ while (i < nums.length) {
 </details>
 <details>
 <summary> <h1 align="center">
-      🆗🚕🚓 📦 K MERGE : 🌱📦🎡🎡
+      #️⃣🚕🚓 K MERGE : 🌱📦🎡🎡
     </h1>  </summary>
     <br>
 <table>
