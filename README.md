@@ -2,7 +2,7 @@
 
 ## 14 Patterns Algorithims
 <table>
-<th><h3>Uses: Symbol in Pattern</h3></th>
+<th><h3>Uses: Symbo in Pattern</h3></th>
 <tr>
 <td>
 <h4>📌 = 1 Pointers <h4> 
