@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron:  '*/10 * * * *'
+    - cron: "0 */2 * * *"
 env:
   GIT_AUTHOR_NAME: alishahusain
   GIT_AUTHOR_EMAIL: alishahusain20@gmail.com
